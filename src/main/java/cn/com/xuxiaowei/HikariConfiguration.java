@@ -29,7 +29,7 @@ public class HikariConfiguration {
         HikariDataSource dataSource = new HikariDataSource();
 
         // 设置连接池所需驱动
-        dataSource.setDriverClassName(com.mysql.cj.jdbc.Driver.class.getName());
+        dataSource.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
 
         dataSource.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/hikari?useSSL=false&serverTimezone=GMT%2B8");
 
