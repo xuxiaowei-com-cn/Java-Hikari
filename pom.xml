@@ -29,6 +29,7 @@
         </dependency>
 
         <!-- Oracle -->
+        <!-- 依赖：ojdbc6 -->
         <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
         <dependency>
             <groupId>com.oracle</groupId>
