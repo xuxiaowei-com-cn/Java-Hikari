@@ -11,39 +11,29 @@
     <dependencies>
 
         <!-- Hikari -->
-        <!-- 依赖：HikariCP、slf4j-api -->
-        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+        <!-- 依赖：HikariCP-java6、slf4j-api -->
         <dependency>
             <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>3.4.1</version>
+            <artifactId>HikariCP-java6</artifactId>
+            <version>2.3.13</version>
         </dependency>
 
         <!-- MySQL -->
-        <!-- 依赖：mysql-connector-java、protobuf-java -->
+        <!-- JDK 6 支持的 MySQL 最高版本为 5.1.48 -->
+        <!-- 依赖：mysql-connector-java -->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.18</version>
+            <version>5.1.48</version>
         </dependency>
 
         <!-- Oracle -->
-        <!-- 依赖：ojdbc8、ons、oraclepki、osdt_cert、osdt_code、simplefan、ucp -->
-        <!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/ojdbc8 -->
+        <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
         <dependency>
-            <groupId>com.oracle.ojdbc</groupId>
-            <artifactId>ojdbc8</artifactId>
-            <version>19.3.0.0</version>
-        </dependency>
-
-        <!-- java.sql.SQLException: 不支持的字符集 (在类路径中添加 orai18n.jar): ZHS16GBK -->
-        <!-- 依赖：orai18n -->
-        <!-- https://mvnrepository.com/artifact/com.oracle.ojdbc/orai18n -->
-        <dependency>
-            <groupId>com.oracle.ojdbc</groupId>
-            <artifactId>orai18n</artifactId>
-            <version>19.3.0.0</version>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>12.1.0.1-atlassian-hosted</version>
         </dependency>
 
     </dependencies>
@@ -51,12 +41,12 @@
     <build>
         <plugins>
 
-            <!-- Java 8 -->
+            <!-- Java 6 -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
 

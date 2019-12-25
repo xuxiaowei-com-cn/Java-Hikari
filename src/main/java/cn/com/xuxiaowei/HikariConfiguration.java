@@ -17,19 +17,27 @@ public class HikariConfiguration {
 
         HikariConfiguration hikariConfiguration = new HikariConfiguration();
 
-        hikariConfiguration.mysql();
+        try {
+            hikariConfiguration.mysql();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-        hikariConfiguration.oracle();
+        try {
+            hikariConfiguration.oracle();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void mysql() {
+    public void mysql() throws SQLException {
 
         // 创建连接池示例
         HikariDataSource dataSource = new HikariDataSource();
 
         // 设置连接池所需驱动
-        dataSource.setDriverClassName(com.mysql.cj.jdbc.Driver.class.getName());
+        dataSource.setDriverClassName(com.mysql.jdbc.Driver.class.getName());
 
         dataSource.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/hikari?useSSL=false&serverTimezone=GMT%2B8");
 
@@ -37,16 +45,24 @@ public class HikariConfiguration {
 
         dataSource.setPassword("root");
 
-        try (Connection connection = dataSource.getConnection()) {
+        Connection connection = null;
+
+        try {
+
+            connection = dataSource.getConnection();
 
             System.out.println(connection);
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.close();
+            }
         }
     }
 
-    public void oracle() {
+    public void oracle() throws SQLException {
 
         // 创建连接池示例
         HikariDataSource dataSource = new HikariDataSource();
@@ -60,12 +76,20 @@ public class HikariConfiguration {
 
         dataSource.setPassword("orcl");
 
-        try (Connection connection = dataSource.getConnection()) {
+        Connection connection = null;
+
+        try {
+
+            connection = dataSource.getConnection();
 
             System.out.println(connection);
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (connection != null) {
+                connection.close();
+            }
         }
     }
 
