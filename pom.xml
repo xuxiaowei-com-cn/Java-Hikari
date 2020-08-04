@@ -31,11 +31,11 @@
 
         <!-- Oracle -->
         <!-- 依赖：ojdbc6 -->
-        <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
+        <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 -->
         <dependency>
-            <groupId>com.oracle</groupId>
+            <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc6</artifactId>
-            <version>12.1.0.1-atlassian-hosted</version>
+            <version>11.2.0.4</version>
         </dependency>
 
     </dependencies>
