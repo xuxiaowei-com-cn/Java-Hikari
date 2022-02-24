@@ -23,6 +23,8 @@ public class HikariConfiguration {
 
         hikariConfiguration.oracle();
 
+        hikariConfiguration.sqlserver();
+
     }
 
     public void mysql() {
@@ -87,6 +89,39 @@ public class HikariConfiguration {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void sqlserver() {
+
+        // 创建连接池示例
+        HikariDataSource dataSource = new HikariDataSource();
+
+        // 设置连接池所需驱动
+        dataSource.setDriverClassName(com.microsoft.sqlserver.jdbc.SQLServerDriver.class.getName());
+
+        dataSource.setJdbcUrl("jdbc:sqlserver://192.168.1.100:1433;DatabaseName=test");
+
+        dataSource.setUsername("sa");
+
+        dataSource.setPassword("sa");
+
+        try (Connection connection = dataSource.getConnection()) {
+
+            System.out.println(connection);
+
+            PreparedStatement preparedStatement = connection.prepareStatement("select 3 * 4 as a");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int a = resultSet.getInt("a");
+                System.out.println(a);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
